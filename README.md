@@ -6,7 +6,6 @@ Landing estática en Astro, React y Tailwind. Incluye las páginas `/`, `/termin
 
 ```powershell
 npm.cmd install
-Copy-Item .env.example .env
 npm.cmd run dev
 npm.cmd run check
 npm.cmd run build
@@ -24,11 +23,13 @@ El botón muestra «Descarga próximamente» si falta la configuración; no env�
 
 - Subir un APK vigente al bucket y definir `PUBLIC_APK_PATH` en Vercel; el bucket está vacío por ahora.
 - Rellenar `PUBLIC_CONTACT_EMAIL` y las redes oficiales opcionales `PUBLIC_INSTAGRAM_URL`, `PUBLIC_FACEBOOK_URL`, `PUBLIC_TELEGRAM_URL`.
-- Sustituir `public/previews/*.svg` por capturas reales de la versión Android publicada y actualizar `src/components/PreviewGallery.tsx`. Las imágenes actuales se identifican como vistas ilustrativas.
+- Sustituir las vistas ilustrativas de `src/components/PreviewGallery.tsx` por capturas reales de la versión Android publicada.
 - Revisar los borradores de términos y privacidad con la identidad legal completa de la empresa y comprobar que coinciden con la versión definitiva del APK y el tratamiento real de datos.
 
 ## Vercel
 
-El proyecto usa el adaptador estático de Vercel y `@vercel/analytics/astro` en el layout compartido. Activa **Web Analytics** en el panel del proyecto para recibir visitas; no se cargan fuentes externas ni se envían eventos personalizados.
+El proyecto usa el adaptador estático de Vercel y `@vercel/analytics/astro` en el layout compartido. Web Analytics ya está habilitado en Vercel; no se cargan fuentes externas ni se envían eventos personalizados. Las fuentes oficiales Manrope e Inter se sirven desde este proyecto.
 
-El sitio se genera como tres páginas estáticas. El límite de solicitudes debe configurarse en **Vercel Firewall → Custom Rules**, antes de servir los archivos desde la red de Vercel; no se implementa en código de servidor. El Firewall y su regla activa deben verificarse después del despliegue. El DDoS distribuido puede requerir además la mitigación automática de Vercel.
+El sitio se genera como tres páginas estáticas. En Vercel Firewall está publicada la regla «Limite general 300 por minuto»: 300 solicitudes por minuto por IP para todas las rutas, con bloqueo al exceder el límite.
+
+La tarjeta para compartir usa `public/minipos-compartir.png`, la imagen horizontal de 1200 × 630 del kit oficial de marca, y metadatos Open Graph/Twitter con URL absoluta. El dominio canónico es `https://minipos-kohl.vercel.app`.
