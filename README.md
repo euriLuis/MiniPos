@@ -32,4 +32,4 @@ El proyecto usa el adaptador estático de Vercel y `@vercel/analytics/astro` en 
 
 El sitio se genera como tres páginas estáticas. En Vercel Firewall está publicada la regla «Limite general 300 por minuto»: 300 solicitudes por minuto por IP para todas las rutas, con bloqueo al exceder el límite.
 
-La tarjeta para compartir usa `public/minipos-compartir.png`, la imagen horizontal de 1200 × 630 del kit oficial de marca, y metadatos Open Graph/Twitter con URL absoluta. El dominio canónico es `https://minipos-kohl.vercel.app`.
+La tarjeta para compartir usa `public/minipos-compartir-v2.png`, derivada de la imagen horizontal de 1200 × 630 del kit oficial de marca con el icono un 20 % mayor, y metadatos Open Graph/Twitter con URL absoluta. El dominio canónico es `https://minipos-kohl.vercel.app`.
