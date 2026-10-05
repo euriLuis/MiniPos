@@ -1,14 +1,15 @@
 ---
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
-import { downloadUrl, socialLinks, supportEmail } from '../config';
+import { downloadUrl, socialPlatforms, supportEmail } from '../config';
+import SocialIcon from '../components/SocialIcon.astro';
 
 interface Props { title: string; description: string; }
 const { title, description } = Astro.props;
 const pathname = Astro.url.pathname;
 const pageTitle = `${title} | MiniPOS`;
 const canonicalUrl = new URL(pathname, Astro.site);
-const shareImageUrl = new URL('/minipos-compartir-v2.png', Astro.site);
+const shareImageUrl = new URL('/minipos-compartir-v3.jpg', Astro.site);
 ---
 <!doctype html>
 <html lang="es">
@@ -26,7 +27,7 @@ const shareImageUrl = new URL('/minipos-compartir-v2.png', Astro.site);
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={shareImageUrl} />
     <meta property="og:image:secure_url" content={shareImageUrl} />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="MiniPOS. Tu negocio, en tus manos. Ventas e inventario desde tu teléfono." />
@@ -35,7 +36,7 @@ const shareImageUrl = new URL('/minipos-compartir-v2.png', Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={shareImageUrl} />
     <meta name="twitter:image:alt" content="MiniPOS. Tu negocio, en tus manos." />
-    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="icon" href="/favicon.webp" type="image/webp" />
     <title>{pageTitle}</title>
     <Analytics />
   </head>
@@ -44,8 +45,8 @@ const shareImageUrl = new URL('/minipos-compartir-v2.png', Astro.site);
     <header class="relative z-20 border-b border-[#ddd4f2] bg-white">
       <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-8 lg:py-4">
         <a class="flex min-h-12 items-center gap-2" href="/" aria-label="MiniPOS, inicio">
-          <img src="/app-icon.png" width="42" height="42" alt="" class="rounded-xl" />
-          <img src="/minipos-logotipo.svg" width="103" height="29" alt="MiniPOS" />
+          <img src="/app-icon.webp" width="42" height="42" alt="" class="rounded-xl" />
+          <img src="/minipos-logotipo.webp" width="103" height="29" alt="MiniPOS" />
         </a>
         <nav aria-label="Navegación principal" class="hidden items-center gap-6 text-sm font-bold lg:flex">
           <a href="/#funciones" class="hover:text-violet">Funciones</a>
@@ -71,7 +72,15 @@ const shareImageUrl = new URL('/minipos-compartir-v2.png', Astro.site);
       <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:grid-cols-3 sm:px-8">
         <div><p class="font-display text-xl font-extrabold">MiniPOS</p><p class="mt-3 max-w-xs text-sm leading-6 text-[#d5cde6]">Tu punto de venta, claro y a mano. Hecho para trabajar desde Android.</p></div>
         <div><p class="font-bold">Explora</p><div class="mt-3 flex flex-col gap-3 text-sm text-[#d5cde6]"><a class="hover:text-white" href="/">Inicio</a><a class="hover:text-white" href="/terminos-y-condiciones/" aria-current={pathname.startsWith('/terminos') ? 'page' : undefined}>Términos y condiciones</a><a class="hover:text-white" href="/politica-de-privacidad/" aria-current={pathname.startsWith('/politica') ? 'page' : undefined}>Política de privacidad</a></div></div>
-        <div><p class="font-bold">Hablemos</p>{supportEmail ? <a class="mt-3 block text-sm text-[#d5cde6] hover:text-white" href={`mailto:${supportEmail}`}>{supportEmail}</a> : <p class="mt-3 text-sm text-[#d5cde6]">Correo de contacto pendiente de publicación.</p>}<div class="mt-4 flex flex-wrap gap-4 text-sm">{socialLinks.map((link) => <a class="text-[#d5cde6] hover:text-white" href={link.url} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</div></div>
+        <div>
+          <p class="font-bold">Hablemos</p>
+          {supportEmail ? <a class="mt-3 block text-sm text-[#d5cde6] hover:text-white" href={`mailto:${supportEmail}`}>{supportEmail}</a> : <p class="mt-3 text-sm text-[#d5cde6]">Correo de contacto pendiente de publicación.</p>}
+          <div class="mt-4 flex flex-wrap gap-2 text-sm" aria-label="Redes sociales">
+            {socialPlatforms.map((link) => /^https:\/\//.test(link.url || '')
+              ? <a class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-white/20 px-3 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" href={link.url} target="_blank" rel="noopener noreferrer"><SocialIcon name={link.label} />{link.label}</a>
+              : <span class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-white/10 px-3 text-[#b9aecf]" title="Enlace pendiente"><SocialIcon name={link.label} />{link.label}</span>)}
+          </div>
+        </div>
       </div>
       <div class="border-t border-white/10 px-5 py-5 text-center text-xs text-[#b9aecf]">© {new Date().getFullYear()} MiniPOS. Todos los derechos reservados.</div>
     </footer>

@@ -22,7 +22,7 @@ El botón muestra «Descarga próximamente» si falta la configuración; no env�
 ## Pendiente antes de publicar
 
 - Subir un APK vigente al bucket y definir `PUBLIC_APK_PATH` en Vercel; el bucket está vacío por ahora.
-- Rellenar `PUBLIC_CONTACT_EMAIL` y las redes oficiales opcionales `PUBLIC_INSTAGRAM_URL`, `PUBLIC_FACEBOOK_URL`, `PUBLIC_TELEGRAM_URL`.
+- Rellenar `PUBLIC_CONTACT_EMAIL` y las redes oficiales opcionales `PUBLIC_FACEBOOK_URL`, `PUBLIC_INSTAGRAM_URL`, `PUBLIC_WHATSAPP_URL`, `PUBLIC_TELEGRAM_URL`.
 - Sustituir las vistas ilustrativas de `src/components/PreviewGallery.tsx` por capturas reales de la versión Android publicada.
 - Revisar los borradores de términos y privacidad con la identidad legal completa de la empresa y comprobar que coinciden con la versión definitiva del APK y el tratamiento real de datos.
 
@@ -32,4 +32,4 @@ El proyecto usa el adaptador estático de Vercel y `@vercel/analytics/astro` en 
 
 El sitio se genera como tres páginas estáticas. En Vercel Firewall está publicada la regla «Limite general 300 por minuto»: 300 solicitudes por minuto por IP para todas las rutas, con bloqueo al exceder el límite.
 
-La tarjeta para compartir usa `public/minipos-compartir-v2.png`, derivada de la imagen horizontal de 1200 × 630 del kit oficial de marca con el icono un 20 % mayor, y metadatos Open Graph/Twitter con URL absoluta. El dominio canónico es `https://minipos-kohl.vercel.app`.
+La tarjeta para compartir usa `public/minipos-compartir-v3.jpg`, derivada de la imagen horizontal de 1200 × 630 del kit oficial de marca con el icono un 20 % mayor. JPEG y una URL nueva facilitan que Telegram vuelva a obtenerla. Los metadatos Open Graph/Twitter usan URL absoluta. El dominio canónico es `https://minipos-kohl.vercel.app`. Los PNG anteriores se conservan para no romper URL ya compartidas.

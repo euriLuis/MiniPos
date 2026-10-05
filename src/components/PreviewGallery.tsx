@@ -20,7 +20,7 @@ export default function PreviewGallery() {
     </div>
     <div className="rounded-[2rem] bg-lilac p-4 sm:p-8">
       <div className="mx-auto w-full max-w-sm overflow-hidden rounded-[2rem] border border-[#ddd4f2] bg-white shadow-[0_18px_45px_rgba(35,26,56,.16)]">
-        <div className="flex items-center gap-3 border-b border-[#ddd4f2] px-5 py-4"><img src="/app-icon.png" width="40" height="40" alt="" className="rounded-xl" /><div><p className="font-display font-extrabold">MiniPOS</p><p className="text-xs text-muted">{screens[active].label}</p></div></div>
+        <div className="flex items-center gap-3 border-b border-[#ddd4f2] px-5 py-4"><img src="/app-icon.webp" width="40" height="40" alt="" className="rounded-xl" /><div><p className="font-display font-extrabold">MiniPOS</p><p className="text-xs text-muted">{screens[active].label}</p></div></div>
         <div className="min-h-[340px] bg-lilac p-5 sm:min-h-[390px]">
           <h3 className="font-display text-2xl font-extrabold">{screens[active].title}</h3>
           {active === 0 && <><p className="mt-2 text-sm text-muted">Venta en curso</p><div className="mt-5 rounded-xl border border-[#ddd4f2] bg-white p-4 text-sm text-muted">Buscar producto o escanear código</div><div className="mt-3 flex justify-between rounded-xl bg-white p-4 font-semibold"><span>Café molido</span><span className="text-violet">2 ×</span></div><div className="mt-2 flex justify-between rounded-xl bg-white p-4 font-semibold"><span>Leche</span><span className="text-violet">1 ×</span></div><div className="mt-4 flex justify-between rounded-xl bg-[#e8e0ff] p-4 font-bold"><span>Total</span><span>$ 740</span></div></>}
