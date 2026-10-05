@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+
+const sections = [
+  { title: '1. Qué ofrece MiniPOS', paragraphs: ['MiniPOS es una aplicación Android para registrar ventas, productos, inventario y otros movimientos del negocio. El sitio web presenta la aplicación y ofrece acceso a su descarga oficial.', 'La información mostrada en la web describe la versión actual de forma general. Las funciones pueden cambiar con actualizaciones.'] },
+  { title: '2. Uso y período gratuito', paragraphs: ['Puedes probar la app durante el período gratuito de 30 días que comienza con el primer uso de la instalación. Al terminar, la disponibilidad de funciones sujetas a pago depende de un plan activo.', 'Eres responsable de usar la aplicación de forma lícita, proteger tu teléfono y mantener copias de tus datos comerciales. No debes intentar alterar los controles de acceso, distribuir versiones modificadas ni interferir con el servicio.'] },
+  { title: '3. Planes y pagos', paragraphs: ['Los planes, su duración y precio vigente se muestran dentro de la aplicación antes de generar una orden. El pago se inicia en MiniPOS y se procesa mediante uPagos; puedes completarlo con el enlace o QR proporcionado y verificarlo al regresar a la app.', 'El acceso de pago se añade después de que el servicio confirme la operación. Una orden pendiente no equivale a un plan activo. Si un pago no aparece confirmado, usa la opción de verificación de la propia app y contacta con soporte antes de iniciar otra operación.'] },
+  { title: '4. Dispositivo, reinstalación y respaldos', paragraphs: ['Cada compra se asocia a la instalación del teléfono desde el que se realiza. El acceso comprado y los datos locales no se recuperan automáticamente después de borrar la app, borrar sus datos, reinstalarla o cambiar de teléfono.', 'El catálogo, las ventas, el inventario y los movimientos se guardan localmente. Usa las funciones de respaldo de MiniPOS y guarda tus copias en un lugar seguro. La empresa no puede reconstruir información que solo existe en tu dispositivo.'] },
+  { title: '5. Descarga y actualizaciones', paragraphs: ['Descarga MiniPOS desde el enlace oficial publicado en este sitio. El APK puede alojarse en Supabase Storage. Instalar archivos obtenidos de terceros puede exponer el teléfono a versiones alteradas.', 'Podemos corregir fallos, actualizar funciones y modificar estos términos. La versión publicada en esta página indica la fecha de actualización.'] },
+  { title: '6. Soporte y reclamaciones', paragraphs: ['Si necesitas ayuda con una instalación, un pago o estos términos, utiliza el canal de contacto publicado en la página principal. Describe el problema y conserva el comprobante de pago cuando corresponda.', 'Cualquier solicitud de devolución o reclamación se evaluará según las condiciones informadas en la compra y las normas aplicables.'] },
+  { title: '7. Titularidad', paragraphs: ['MiniPOS, su nombre, diseño, contenido y software pertenecen a la empresa que publica MiniPOS. Todos los derechos reservados. La descarga concede permiso de uso de la aplicación conforme a estos términos; no transfiere la propiedad del software.'] },
+];
+---
+<Base title="Términos y condiciones" description="Condiciones de uso, descarga y pago de MiniPOS.">
+  <article class="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24">
+    <a href="/" class="text-sm font-bold text-violet hover:underline">← Volver al inicio</a>
+    <p class="mt-10 text-xs font-extrabold uppercase tracking-[.18em] text-violet">Información legal</p>
+    <h1 class="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-6xl">Términos y condiciones</h1>
+    <p class="mt-5 text-muted">Última actualización: 5 de octubre de 2026</p>
+    <p class="mt-8 rounded-2xl bg-lilac p-5 leading-7">Estos términos explican el uso de la app, la descarga, los planes y la responsabilidad sobre los datos guardados en el teléfono. Léelos antes de instalar o pagar.</p>
+    <div class="mt-10 space-y-10">{sections.map((section) => <section class="border-t border-[#e3daf1] pt-7"><h2 class="font-display text-2xl font-extrabold">{section.title}</h2>{section.paragraphs.map((paragraph) => <p class="mt-4 leading-8 text-muted">{paragraph}</p>)}</section>)}</div>
+    <div class="mt-12 rounded-2xl bg-ink p-7 text-white"><h2 class="font-display text-xl font-extrabold">¿Necesitas aclarar algo?</h2><p class="mt-2 leading-7 text-[#ddd5ea]">Consulta los datos de contacto publicados en la página principal.</p><a href="/#contacto" class="mt-5 inline-flex min-h-11 items-center rounded-full bg-white px-5 font-bold text-ink">Ir a contacto →</a></div>
+  </article>
+</Base>

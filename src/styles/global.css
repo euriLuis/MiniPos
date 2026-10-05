@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Segoe UI', Arial, sans-serif;
+  --font-display: 'Aptos Display', 'Segoe UI', Arial, sans-serif;
+  --color-ink: #231a38;
+  --color-violet: #6032e8;
+  --color-lilac: #f5f2fb;
+  --color-muted: #625a73;
+}
+
+html { scroll-behavior: smooth; }
+body { color: var(--color-ink); background: #fdfcff; }
+::selection { background: #ded4ff; color: #231a38; }
+:focus-visible { outline: 3px solid #8b68ff; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

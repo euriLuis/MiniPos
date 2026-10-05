@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+
+const sections = [
+  { title: '1. Responsable y alcance', paragraphs: ['MiniPOS, la empresa que publica la aplicación, es responsable de los datos necesarios para operar el sitio y el servicio de acceso de la app. Esta política describe tanto la web como la aplicación Android.', 'El contacto de privacidad se publicará en la sección Contacto de la página principal antes de abrir el sitio al público.'] },
+  { title: '2. Datos de la aplicación', paragraphs: ['Para iniciar el período gratuito y reconocer la instalación, MiniPOS registra un identificador de instalación y la provincia que eliges. Puede recibir datos técnicos como versión de la app, plataforma, versión del sistema y modelo del teléfono, junto con fechas y estado de acceso.', 'Si compras un plan, la app solicita el número de teléfono que realizará el pago y registra la orden, el plan, su importe y estado de verificación. El número se comparte con el proveedor que procesa el pago.'] },
+  { title: '3. Datos de tu negocio', paragraphs: ['Los productos, ventas, inventario y movimientos se guardan en el dispositivo. MiniPOS no los envía al servidor para prestar el servicio de pago.', 'Si exportas o compartes un respaldo, tú decides dónde se guarda y con quién lo compartes. Protege esos archivos, pues pueden contener información comercial.'] },
+  { title: '4. Finalidad y proveedores', paragraphs: ['Usamos los datos de instalación para administrar la prueba gratuita, reconocer el plan activo, verificar pagos, impedir el uso de una compra en varios teléfonos, prestar soporte y proteger el servicio.', 'Supabase puede alojar información del servicio y el APK; uPagos procesa las órdenes de pago; Vercel aloja la página web y proporciona estadísticas agregadas de visitas mediante Web Analytics, sin cookies de seguimiento. Vercel también puede tratar datos técnicos de conexión necesarios para entregar el sitio y mantenerlo seguro. Los enlaces a redes sociales llevan a servicios de terceros con sus propias políticas.'] },
+  { title: '5. Conservación y seguridad', paragraphs: ['Conservamos los datos asociados a la instalación y a los pagos durante el tiempo necesario para prestar el acceso, resolver incidencias y atender obligaciones aplicables. El contenido local permanece en el teléfono hasta que elimines la app o sus datos.', 'Se emplean conexiones HTTPS y controles de acceso para la información del servicio. Ningún sistema elimina por completo los riesgos: mantén tu dispositivo protegido y conserva respaldos seguros.'] },
+  { title: '6. Tus opciones', paragraphs: ['Puedes usar la prueba sin comprar un plan. Para solicitar información, corrección o eliminación de datos asociados a una instalación, usa el canal de privacidad publicado en la página principal. Puede ser necesario verificar que controlas la instalación o el pago.', 'Borrar datos del servidor no borra por sí solo la información comercial almacenada en tu teléfono. Desinstalar MiniPOS o borrar sus datos puede hacer perder tanto esa información como el acceso comprado; no existe recuperación automática tras la reinstalación.'] },
+  { title: '7. Cambios', paragraphs: ['Si cambia el tratamiento de datos, actualizaremos esta página y su fecha. Cuando corresponda, informaremos los cambios importantes dentro de la aplicación.'] },
+];
+---
+<Base title="Política de privacidad" description="Cómo MiniPOS trata los datos de la web, la instalación y los pagos.">
+  <article class="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24">
+    <a href="/" class="text-sm font-bold text-violet hover:underline">← Volver al inicio</a>
+    <p class="mt-10 text-xs font-extrabold uppercase tracking-[.18em] text-violet">Información legal</p>
+    <h1 class="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-6xl">Política de privacidad</h1>
+    <p class="mt-5 text-muted">Última actualización: 5 de octubre de 2026</p>
+    <p class="mt-8 rounded-2xl bg-lilac p-5 leading-7">Tus datos comerciales se guardan en tu dispositivo. Para la prueba, los planes y los pagos, MiniPOS utiliza la información limitada que se describe a continuación.</p>
+    <div class="mt-10 space-y-10">{sections.map((section) => <section class="border-t border-[#e3daf1] pt-7"><h2 class="font-display text-2xl font-extrabold">{section.title}</h2>{section.paragraphs.map((paragraph) => <p class="mt-4 leading-8 text-muted">{paragraph}</p>)}</section>)}</div>
+    <div class="mt-12 rounded-2xl bg-ink p-7 text-white"><h2 class="font-display text-xl font-extrabold">Consultas sobre tus datos</h2><p class="mt-2 leading-7 text-[#ddd5ea]">El canal de privacidad se mostrará en la sección Contacto.</p><a href="/#contacto" class="mt-5 inline-flex min-h-11 items-center rounded-full bg-white px-5 font-bold text-ink">Ir a contacto →</a></div>
+  </article>
+</Base>
