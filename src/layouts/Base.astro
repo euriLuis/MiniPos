@@ -25,6 +25,8 @@ const shareImageUrl = new URL('/minipos-compartir.png', Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={shareImageUrl} />
+    <meta property="og:image:secure_url" content={shareImageUrl} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="MiniPOS. Tu negocio, en tus manos. Ventas e inventario desde tu teléfono." />
@@ -32,6 +34,7 @@ const shareImageUrl = new URL('/minipos-compartir.png', Astro.site);
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={shareImageUrl} />
+    <meta name="twitter:image:alt" content="MiniPOS. Tu negocio, en tus manos." />
     <link rel="icon" href="/favicon.png" type="image/png" />
     <title>{pageTitle}</title>
     <Analytics />
