@@ -23,7 +23,7 @@ El botón muestra «Descarga próximamente» si falta la configuración; no env�
 
 - Subir un APK vigente al bucket y definir `PUBLIC_APK_PATH` en Vercel; el bucket está vacío por ahora.
 - Rellenar `PUBLIC_CONTACT_EMAIL` y las redes oficiales opcionales `PUBLIC_FACEBOOK_URL`, `PUBLIC_INSTAGRAM_URL`, `PUBLIC_WHATSAPP_URL`, `PUBLIC_TELEGRAM_URL`.
-- Sustituir las vistas ilustrativas de `src/components/PreviewGallery.tsx` por capturas reales de la versión Android publicada.
+- Sustituir las vistas ilustrativas por capturas reales de la versión Android publicada. Guarda las imágenes optimizadas en `public/screenshots/` y asigna sus rutas a `Venta`, `Resumen`, `IPV`, `Inventario` e `Historial` en `src/components/PhoneMockup.tsx` (`screenshots`). Los mismos marcos se usan en la portada, los pasos y la galería.
 - Revisar los borradores de términos y privacidad con la identidad legal completa de la empresa y comprobar que coinciden con la versión definitiva del APK y el tratamiento real de datos.
 
 ## Vercel
