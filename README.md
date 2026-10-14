@@ -13,22 +13,19 @@ npm.cmd run build
 
 ## Descarga desde Supabase Storage
 
-1. El bucket **público** `minipos-downloads` ya está creado en el proyecto `miniPos` (`jwvffmfcwfdkqjemwpgu`). Sube el APK firmado, por ejemplo `minipos-latest.apk`. La subida y sustitución deben quedar restringidas a administradores; el público solo necesita leerlo.
-2. Configura en Vercel `PUBLIC_APK_PATH` con la ruta del archivo dentro del bucket. `PUBLIC_SUPABASE_URL` ya tiene como valor predeterminado la URL del proyecto y puede sobrescribirse si se migra. El botón enlaza a `https://<proyecto>.supabase.co/storage/v1/object/public/minipos-downloads/<ruta>?download=minipos.apk`, así el contenido lo entrega Supabase y no Vercel.
-3. Tras subir el APK, abre ese enlace en una ventana privada y comprueba que descarga el archivo correcto. Al sustituirlo, verifica la versión y el hash del APK, y vuelve a probar la descarga.
-
-El botón muestra «Descarga próximamente» si falta la configuración; no envía al visitante a un enlace ficticio. El bucket público permite a cualquier persona descargar el archivo si conoce la URL. Nunca pongas claves secretas de Supabase en variables `PUBLIC_`.
+El botón fijo de la portada pasa por `/descargar`, que redirige al APK público de Supabase. Si se publica una versión nueva, actualiza el destino en `vercel.json` y comprueba la redirección y el APK en una ventana privada. El contenido lo entrega Supabase, no Vercel; la subida y sustitución del APK deben quedar restringidas a administradores.
 
 ## Pendiente antes de publicar
 
-- Subir un APK vigente al bucket y definir `PUBLIC_APK_PATH` en Vercel; el bucket está vacío por ahora.
-- Rellenar `PUBLIC_CONTACT_EMAIL` y las redes oficiales opcionales `PUBLIC_FACEBOOK_URL`, `PUBLIC_INSTAGRAM_URL`, `PUBLIC_WHATSAPP_URL`, `PUBLIC_TELEGRAM_URL`.
-- Sustituir las vistas ilustrativas por capturas reales de la versión Android publicada. Guarda las imágenes optimizadas en `public/screenshots/` y asigna sus rutas a `Venta`, `Resumen`, `IPV`, `Inventario` e `Historial` en `src/components/PhoneMockup.tsx` (`screenshots`). Los mismos marcos se usan en la portada, los pasos y la galería.
+- Comprobar en Android que el APK enlazado es la versión vigente y se instala correctamente.
+- Rellenar `PUBLIC_CONTACT_EMAIL` cuando haya un correo oficial. El enlace de Instagram sigue pendiente.
 - Revisar los borradores de términos y privacidad con la identidad legal completa de la empresa y comprobar que coinciden con la versión definitiva del APK y el tratamiento real de datos.
 
 ## Vercel
 
-El proyecto usa el adaptador estático de Vercel y `@vercel/analytics/astro` en el layout compartido. Web Analytics ya está habilitado en Vercel; no se cargan fuentes externas ni se envían eventos personalizados. Las fuentes oficiales Manrope e Inter se sirven desde este proyecto.
+El proyecto usa el adaptador estático de Vercel y `@vercel/analytics/astro` en el layout compartido. Web Analytics muestra visitantes, páginas vistas, origen, país, navegador y dispositivo en **Analytics**. `@vercel/speed-insights/astro` añade métricas reales de rendimiento en **Speed Insights**; hay que activar esta función en el panel de Vercel para que empiece a recopilar datos. No se cargan fuentes externas ni se envían eventos personalizados. Las fuentes oficiales Manrope e Inter se sirven desde este proyecto.
+
+Para contar intentos de descarga, abre **Observability → CDN Requests** y consulta la ruta `/descargar`. Cada solicitud a esa ruta redirige al APK de Supabase. Este número puede incluir bots o repeticiones y no confirma que la descarga terminase ni que se instalase. El plan Hobby no ofrece eventos personalizados de Web Analytics ni mapas de calor; para descargas completadas harían falta datos del proveedor que sirve el APK.
 
 El sitio se genera como tres páginas estáticas. En Vercel Firewall está publicada la regla «Limite general 300 por minuto»: 300 solicitudes por minuto por IP para todas las rutas, con bloqueo al exceder el límite.
 

@@ -16,6 +16,7 @@
 
 html { scroll-behavior: smooth; }
 body { color: var(--color-ink); background: var(--color-lilac); }
+body:has(.download-cta) { padding-bottom: 96px; }
 ::selection { background: #e8e0ff; color: #231a38; }
 :focus-visible { outline: 3px solid #8b68ff; outline-offset: 3px; }
 button, a, summary { touch-action: manipulation; }
@@ -28,17 +29,18 @@ button, a, summary { touch-action: manipulation; }
 .hero-wave { position: absolute; right: -10%; bottom: -1px; left: -10%; height: 26px; background: white; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
 .hero-art { position: relative; width: 100%; max-width: 520px; height: 540px; margin: auto; }
 .hero-art-halo { position: absolute; inset: 8% 1% 7%; border-radius: 50%; background: #d8cdf8; opacity: .75; }
+.hero-art-halo::after { content: ''; position: absolute; right: 12%; bottom: -3%; left: 12%; height: 18%; border-radius: 50%; background: #231a38a6; filter: blur(22px); }
+.hero-art .phone-mockup { box-shadow: 0 36px 42px -14px #231a388c, 0 62px 75px -28px #231a387a, inset 0 0 0 1px #ffffff80; }
 .hero-phone-front { position: absolute; z-index: 2; top: 4%; left: 13%; width: 55%; max-width: 260px; transform: rotate(-8deg); }
 .hero-phone-back { position: absolute; z-index: 1; top: 11%; right: 8%; width: 49%; max-width: 225px; transform: rotate(11deg); }
-.hero-art-tag { position: absolute; z-index: 3; right: 0; bottom: 11%; padding: 12px 18px; border: 1px solid #ddd4f2; border-radius: 100px; background: #fff; box-shadow: 0 12px 34px #231a3820; color: #231a38; font-size: 12px; font-weight: 800; }
 .hero-art::before, .hero-art::after, .steps-art::after, .gallery-stage::after { content: ''; position: absolute; width: 38px; height: 38px; background: #6c3bff; clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); pointer-events: none; }
 .hero-art::before { z-index: 3; top: 3%; right: 4%; }
 .hero-art::after { z-index: 3; bottom: 18%; left: 2%; width: 26px; height: 26px; background: #b49aff; }
 
-.phone-mockup { aspect-ratio: 9 / 19.3; padding: 7px; border: 2px solid #544d67; border-radius: 40px; background: #211a31; box-shadow: 0 28px 45px -20px #231a3866, inset 0 0 0 2px #716b7e; }
-.phone-screen { position: relative; display: flex; width: 100%; height: 100%; overflow: hidden; border-radius: 32px; background: #f5f2fb; flex-direction: column; }
+.phone-mockup { aspect-ratio: 77.6 / 162.8; padding: 4px; border: 2px solid #777982; border-radius: 24px; background: linear-gradient(110deg, #e5e5e9, #646670 8%, #20212a 16%, #20212a 84%, #777983 94%, #e5e5e9); box-shadow: 0 28px 45px -20px #231a3866, inset 0 0 0 1px #ffffff80; }
+.phone-screen { position: relative; display: flex; width: 100%; height: 100%; overflow: hidden; border: 1px solid #171820; border-radius: 18px; background: #f5f2fb; flex-direction: column; }
 .phone-status { display: flex; height: 30px; padding: 8px 17px 0; align-items: flex-start; justify-content: space-between; background: white; color: #231a38; font-size: 10px; font-weight: 800; line-height: 1; }
-.phone-camera { position: absolute; z-index: 3; top: 7px; left: 50%; width: 31%; height: 16px; border-radius: 20px; background: #211a31; transform: translateX(-50%); }
+.phone-camera { position: absolute; z-index: 3; top: 9px; left: 50%; width: 9px; height: 9px; border: 1px solid #4a4c53; border-radius: 50%; background: #0c0d13; transform: translateX(-50%); }
 .phone-screenshot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .phone-demo { display: flex; min-height: 0; flex: 1; flex-direction: column; }
 .phone-appbar { display: flex; height: 48px; padding: 7px 14px; align-items: center; gap: 8px; background: white; color: #231a38; font-size: 13px; font-weight: 800; }
@@ -87,12 +89,14 @@ button, a, summary { touch-action: manipulation; }
 .steps-art { position: relative; width: 100%; max-width: 520px; min-height: 560px; margin: auto; perspective: 1000px; }
 .steps-art-ring { position: absolute; width: 420px; height: 420px; border: 1px solid #cfc1f2; border-radius: 50%; box-shadow: 0 0 0 50px #ffffff20, 0 0 0 100px #ffffff18; }
 .steps-art-ring { top: 12%; left: 6%; }
-.steps-art .phone-mockup { position: absolute; border-color: #858092; background: linear-gradient(105deg, #d9d5e2 0%, #2b2539 7%, #171124 45%, #5a5467 91%, #ece9f1 100%); box-shadow: -8px 8px 0 -5px #a39cae, 0 34px 44px -18px #231a3880, inset 2px 1px 2px #fff9, inset -2px -1px 3px #090613; }
-.steps-art .phone-mockup::before { content: ''; position: absolute; z-index: 4; inset: -2px; border: 2px solid #f9f6ff80; border-radius: 40px; box-shadow: inset 2px 0 1px #fff9, 2px 0 3px #fff6; pointer-events: none; }
+.steps-art .phone-mockup { position: absolute; padding: 3px; border-color: #666673; border-radius: 22px; background: linear-gradient(90deg, #f2f0f4 0%, #9896a1 3%, #373640 8%, #171820 50%, #777681 93%, #eeedf2 100%); box-shadow: -9px 9px 0 -5px #8f8d99, -15px 20px 16px -13px #231a3866, 0 38px 48px -18px #231a3880, inset 1px 1px 2px #fff9; }
+.steps-art .phone-mockup::before { content: ''; position: absolute; z-index: 4; inset: -2px; border: 1px solid #f9f6ff9c; border-radius: 22px; box-shadow: inset 2px 0 1px #fff9, 2px 0 3px #fff6; pointer-events: none; }
+.steps-art .phone-mockup::after { content: ''; position: absolute; z-index: 4; top: 21%; right: -3px; width: 3px; height: 10%; border-radius: 0 2px 2px 0; background: linear-gradient(#dddbe1, #555560 18%, #bebdc7 85%, #52525b); box-shadow: 1px 1px 2px #231a3880; pointer-events: none; }
+.steps-art .phone-screen { border-radius: 18px; }
 .steps-art .phone-screen::after { content: ''; position: absolute; z-index: 4; inset: 0; background: linear-gradient(115deg, #fff4 0%, transparent 23%, transparent 70%, #fff2 100%); pointer-events: none; }
-.steps-art .steps-phone-back { z-index: 2; top: 17%; left: 5%; width: 185px; transform: rotateY(12deg) rotateZ(-11deg); }
-.steps-art .steps-phone-front { z-index: 3; top: 3%; left: 28%; width: 235px; transform: rotateY(-9deg) rotateZ(-5deg); box-shadow: -8px 8px 0 -5px #b2abba, 3px 40px 48px -14px #231a3899, inset 2px 1px 2px #fff9, inset -2px -1px 3px #090613; }
-.steps-brand-card { position: absolute; z-index: 1; top: 16%; left: 63%; display: flex; width: 165px; aspect-ratio: .72; padding: 18px; border: 1px solid #8c7ab0; border-radius: 23px; background: radial-gradient(circle at 95% 5%, #62509a, transparent 35%), linear-gradient(145deg, #382450, #100c1d 72%); box-shadow: 10px 25px 30px -12px #231a3870, inset 2px 2px 1px #ffffff55; color: white; flex-direction: column; align-items: flex-end; justify-content: space-between; transform: rotateY(-17deg) rotateZ(11deg); }
+.steps-art .steps-phone-back { z-index: 2; top: 17%; left: 5%; width: 185px; transform: rotateY(20deg) rotateZ(-11deg); }
+.steps-art .steps-phone-front { z-index: 3; top: 3%; left: 28%; width: 235px; transform: rotateY(-17deg) rotateZ(-5deg); box-shadow: -9px 9px 0 -5px #aaa8b2, -15px 20px 16px -13px #231a3866, 3px 42px 52px -14px #231a3899, inset 1px 1px 2px #fff9; }
+.steps-brand-card { position: absolute; z-index: 1; top: 16%; left: 63%; display: flex; width: 165px; aspect-ratio: .72; padding: 18px; border: 2px solid #898394; border-radius: 22px; background: radial-gradient(circle at 95% 5%, #62509a, transparent 35%), linear-gradient(145deg, #382450, #100c1d 72%); box-shadow: 8px 8px 0 -5px #aaa5b2, 16px 30px 32px -12px #231a3870, inset 2px 2px 1px #ffffff55; color: white; flex-direction: column; align-items: flex-end; justify-content: space-between; transform: rotateY(-24deg) rotateZ(11deg); }
 .steps-brand-card::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(125deg, #fff3, transparent 28%, transparent 76%, #fff1); pointer-events: none; }
 .steps-brand-card img { border-radius: 9px; }
 .steps-brand-card span { font-family: Manrope, sans-serif; font-size: 18px; font-weight: 800; letter-spacing: -.04em; }
@@ -100,7 +104,7 @@ button, a, summary { touch-action: manipulation; }
 .steps-art::after { right: 12%; bottom: 10%; }
 .steps-list li:not(:last-child) { padding-bottom: 20px; border-bottom: 1px solid #d5c9eb; }
 .step-number { display: flex; width: 42px; height: 42px; align-items: center; justify-content: center; border-radius: 50%; background: white; color: #6c3bff; font-size: 12px; }
-.gallery-stage { position: relative; max-width: 1000px; margin: auto; overflow: hidden; }
+.gallery-stage { position: relative; max-width: 1000px; margin: auto; overflow: hidden; touch-action: pan-y; }
 .gallery-stage::before { content: ''; position: absolute; inset: 9% 4% 8%; border-radius: 50%; background: radial-gradient(ellipse, #eee8ff 0, #f5f2fb 45%, transparent 73%); }
 .gallery-stage::after { top: 8%; right: 5%; background: #b49aff; }
 .gallery-phones { position: relative; height: 560px; margin: 42px auto 0; }
@@ -112,7 +116,19 @@ button, a, summary { touch-action: manipulation; }
 .gallery-phone[data-slot="4"] { left: 82%; z-index: 1; --tilt: 10deg; }
 .gallery-phone.is-active { top: 14px; z-index: 5; transform: translateX(-50%) scale(1.04); }
 .gallery-phone.is-active .phone-mockup { box-shadow: 0 34px 55px -18px #231a3880, inset 0 0 0 2px #716b7e; }
+.gallery-arrow { position: absolute; z-index: 7; top: 48%; display: grid; width: 46px; height: 46px; place-items: center; border: 1px solid #ddd4f2; border-radius: 50%; background: #fff; box-shadow: 0 7px 20px #231a3833; color: #6c3bff; cursor: pointer; font-size: 34px; line-height: 1; transform: translateY(-50%); }
+.gallery-arrow:hover { background: #f5f2fb; }
+.gallery-arrow-prev { left: 8px; }
+.gallery-arrow-next { right: 8px; }
 .contact-section { position: relative; background: radial-gradient(circle at 95% 10%, #392566 0, transparent 36%), #171024; }
+.download-cta { position: fixed; z-index: 100; right: 12.5vw; bottom: max(20px, env(safe-area-inset-bottom)); display: flex; width: 75vw; min-height: 64px; min-width: 0; padding-inline: 10px; align-items: center; justify-content: center; gap: 8px; overflow: hidden; border: 1px solid #1D4FC4; border-top-color: #4D80EC; border-bottom-color: #173F9F; border-radius: 14px; background: #6C3BFF; box-shadow: 0 7px 14px rgba(0,0,0,0.32), 0 20px 34px rgba(0,0,0,0.30), inset 0 2px 2px rgba(255,255,255,0.28), inset 0 -3px 4px rgba(0,0,0,0.20); color: #FFFFFF; cursor: pointer; font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: clamp(18px, 5.75vw, 23px); font-weight: 900; line-height: 28px; text-align: center; transition: width .5s ease-in-out, right .5s ease-in-out, gap .5s ease-in-out, box-shadow .15s ease; }
+.download-cta:active { box-shadow: 0 2px 4px rgba(0,0,0,0.18), inset 0 2px 4px rgba(0,0,0,0.26), inset 0 -1px 1px rgba(255,255,255,0.14); }
+.download-cta:focus-visible { outline: 3px solid #1D4FC4; outline-offset: 3px; }
+.download-cta.is-compact { right: calc(12.5vw - 12px); width: 25vw; gap: 0; }
+.download-cta-label { max-width: 22ch; overflow: hidden; white-space: nowrap; transition: max-width .5s ease-in-out, opacity .3s ease-in-out; }
+.download-cta.is-compact .download-cta-label { max-width: 0; opacity: 0; }
+.download-cta-icon { width: 20px; height: 20px; flex: none; transition: transform .5s ease-in-out; }
+.download-cta.is-compact .download-cta-icon { transform: scale(1.5); }
 .site-footer { background: #211d2a; }
 .footer-panel { overflow: hidden; border: 1px solid #ffffff1a; border-radius: 24px; background: #090613; box-shadow: 0 30px 70px #09061355; }
 .footer-brandline { overflow: hidden; padding: 14px 0 8px; background: radial-gradient(ellipse at 50% 110%, #6c3bff45, transparent 55%); text-align: center; }
@@ -127,7 +143,6 @@ button, a, summary { touch-action: manipulation; }
   .hero-art { height: 480px; max-width: 360px; }
   .hero-phone-front { left: 9%; width: 59%; }
   .hero-phone-back { right: 3%; width: 52%; }
-  .hero-art-tag { bottom: 4%; right: 1%; }
   .steps-art { min-height: 460px; }
   .steps-art-ring { width: 300px; height: 300px; top: 15%; left: 5%; }
   .steps-art .steps-phone-back { top: 19%; left: 1%; width: 150px; }
@@ -135,7 +150,12 @@ button, a, summary { touch-action: manipulation; }
   .steps-brand-card { top: 19%; width: 125px; padding: 12px; border-radius: 17px; }
   .steps-brand-card img { width: 29px; height: 29px; }
   .steps-brand-card span { font-size: 14px; }
-  .gallery-phones { height: clamp(480px, 138vw, 540px); }
-  .gallery-phone { width: min(62vw, 230px); }
+  .gallery-phones { height: clamp(370px, 112vw, 440px); margin-top: 28px; }
+  .gallery-phone { width: min(49vw, 190px); }
+  .gallery-phone[data-slot="0"] { left: 10%; }
+  .gallery-phone[data-slot="1"] { left: 30%; }
+  .gallery-phone[data-slot="3"] { left: 70%; }
+  .gallery-phone[data-slot="4"] { left: 90%; }
+  .gallery-arrow { width: 44px; height: 44px; }
 }
-@media (prefers-reduced-motion: reduce) { .gallery-phone { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .gallery-phone, .download-cta, .download-cta-label, .download-cta-icon { transition: none; } }

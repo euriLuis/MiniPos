@@ -1,20 +1,26 @@
-type Screen = 'Venta' | 'Resumen' | 'IPV' | 'Inventario' | 'Historial';
+type Screen = 'Venta' | 'Resumen' | 'Escáner' | 'IPV' | 'Inventario' | 'Historial';
 
-// Añade aquí capturas del APK publicado; mientras tanto se muestra la vista ilustrativa.
-export const screenshots: Partial<Record<Screen, string>> = {};
+export const screenshots: Record<Screen, string> = {
+  Venta: '/screenshots/venta.jpg',
+  Resumen: '/screenshots/resumen.jpg',
+  Escáner: '/screenshots/escaner.jpg',
+  IPV: '/screenshots/ipv.jpg',
+  Inventario: '/screenshots/inventario.jpg',
+  Historial: '/screenshots/historial.jpg',
+};
 
-export default function PhoneMockup({ screen, className = '' }: { screen: Screen; className?: string }) {
-  const screenshot = screenshots[screen];
+export default function PhoneMockup({ id, screen, className = '', screenshotSrc }: { id: string; screen: Screen; className?: string; screenshotSrc?: string }) {
+  const screenshot = screenshotSrc ?? screenshots[screen];
 
-  return <div className={`phone-mockup ${className}`} aria-label={`${screen} de MiniPOS, ${screenshot ? 'captura de la app' : 'vista ilustrativa'}`}>
+  return <div id={id} className={`phone-mockup ${className}`} aria-label={`${screen} de MiniPOS, ${screenshot ? 'captura de la app' : 'vista ilustrativa'}`}>
     <div className="phone-screen">
       {!screenshot && <div className="phone-status"><span>9:41</span><span>●●● ▰</span></div>}
       <div className="phone-camera" aria-hidden="true" />
       {screenshot ? <img className="phone-screenshot" src={screenshot} alt={`Pantalla ${screen} de MiniPOS`} /> : <div className="phone-demo">
         <div className="phone-appbar"><img src="/app-icon.webp" width="27" height="27" alt="" /><span>MiniPOS</span><span className="phone-appbar-dot" /></div>
         <div className="phone-content">
-          <p className="phone-eyebrow">{{ Venta: 'PUNTO DE VENTA', Resumen: 'TU NEGOCIO', IPV: 'CONTROL DE EXISTENCIAS', Inventario: 'PRODUCTOS', Historial: 'ACTIVIDAD' }[screen]}</p>
-          <h3>{{ Venta: 'Una venta más simple', Resumen: 'Números más claros', IPV: 'Control IPV', Inventario: 'Inventario en orden', Historial: 'Historial de ventas' }[screen]}</h3>
+          <p className="phone-eyebrow">{{ Venta: 'PUNTO DE VENTA', Resumen: 'TU NEGOCIO', Escáner: 'ESCÁNER', IPV: 'CONTROL DE EXISTENCIAS', Inventario: 'PRODUCTOS', Historial: 'ACTIVIDAD' }[screen]}</p>
+          <h3>{{ Venta: 'Una venta más simple', Resumen: 'Números más claros', Escáner: 'Escanea productos', IPV: 'Control IPV', Inventario: 'Inventario en orden', Historial: 'Historial de ventas' }[screen]}</h3>
           {screen === 'Venta' && <>
             <div className="phone-search">Buscar producto o escanear <span>⌕</span></div>
             <div className="phone-row"><span>Café molido</span><b>2 ×</b></div>

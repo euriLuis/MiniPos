@@ -1,13 +1,9 @@
 export const supportEmail = import.meta.env.PUBLIC_CONTACT_EMAIL || '';
-const storageUrl = import.meta.env.PUBLIC_SUPABASE_URL || 'https://jwvffmfcwfdkqjemwpgu.supabase.co';
-const apkPath = import.meta.env.PUBLIC_APK_PATH || '';
-export const downloadUrl = /^https:\/\/[^/]+\.supabase\.co$/.test(storageUrl) && /^[\w./-]+\.apk$/.test(apkPath) && !apkPath.includes('..')
-  ? `${storageUrl}/storage/v1/object/public/minipos-downloads/${apkPath}?download=minipos.apk`
-  : '';
+// shortcut: Astro dev does not apply Vercel redirects; use vercel dev to test this link locally.
+export const downloadUrl = '/descargar';
 export const socialPlatforms = [
-  { label: 'Facebook', url: import.meta.env.PUBLIC_FACEBOOK_URL },
-  { label: 'Instagram', url: import.meta.env.PUBLIC_INSTAGRAM_URL },
-  { label: 'WhatsApp', url: import.meta.env.PUBLIC_WHATSAPP_URL },
-  { label: 'Telegram', url: import.meta.env.PUBLIC_TELEGRAM_URL },
+  { label: 'Facebook', url: 'https://www.facebook.com/share/1QPwVqWy8z/' },
+  { label: 'Instagram', url: '' },
+  { label: 'WhatsApp', url: 'https://whatsapp.com/channel/0029VbDlUhIFnSz0fDh35O0U' },
+  { label: 'Telegram', url: 'https://t.me/miniposapk' },
 ] as const;
-export const socialLinks = socialPlatforms.filter((link) => /^https:\/\//.test(link.url || ''));

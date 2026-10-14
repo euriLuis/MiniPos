@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/descargar",
+      "destination": "https://jwvffmfcwfdkqjemwpgu.supabase.co/storage/v1/object/public/minipos-downloads/MiniPos-0.3.9.apk",
+      "permanent": false
+    }
+  ]
+}
