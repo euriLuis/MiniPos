@@ -18,7 +18,7 @@ El botón fijo de la portada pasa por `/descargar`, que redirige al APK público
 ## Pendiente antes de publicar
 
 - Comprobar en Android que el APK enlazado es la versión vigente y se instala correctamente.
-- Rellenar `PUBLIC_CONTACT_EMAIL` cuando haya un correo oficial. El enlace de Instagram sigue pendiente.
+- Confirmar que `appminipos@gmail.com` recibe consultas antes de publicar; `PUBLIC_CONTACT_EMAIL` permite sustituirlo. El enlace de Instagram sigue pendiente.
 - Revisar los borradores de términos y privacidad con la identidad legal completa de la empresa y comprobar que coinciden con la versión definitiva del APK y el tratamiento real de datos.
 
 ## Vercel

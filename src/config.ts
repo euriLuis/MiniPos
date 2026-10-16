@@ -1,4 +1,4 @@
-export const supportEmail = import.meta.env.PUBLIC_CONTACT_EMAIL || '';
+export const supportEmail = import.meta.env.PUBLIC_CONTACT_EMAIL || 'appminipos@gmail.com';
 // shortcut: Astro dev does not apply Vercel redirects; use vercel dev to test this link locally.
 export const downloadUrl = '/descargar';
 export const socialPlatforms = [
