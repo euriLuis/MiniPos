@@ -11,9 +11,9 @@ npm.cmd run check
 npm.cmd run build
 ```
 
-## Descarga desde Supabase Storage
+## Descarga desde GitHub Releases
 
-El botón fijo de la portada pasa por `/descargar`, que redirige al APK público de Supabase. Si se publica una versión nueva, actualiza el destino en `vercel.json` y comprueba la redirección y el APK en una ventana privada. El contenido lo entrega Supabase, no Vercel; la subida y sustitución del APK deben quedar restringidas a administradores.
+El botón fijo de la portada pasa por `/descargar`, que redirige al archivo `MiniPos.apk` de la última Release pública de `euriLuis/MiniPos`. Para publicar una nueva versión, crea una Release no preliminar con el APK firmado bajo ese mismo nombre y comprueba la descarga en una ventana privada. El contenido lo entrega GitHub, no Vercel.
 
 ## Pendiente antes de publicar
 
@@ -25,7 +25,7 @@ El botón fijo de la portada pasa por `/descargar`, que redirige al APK público
 
 El proyecto usa el adaptador estático de Vercel y `@vercel/analytics/astro` en el layout compartido. Web Analytics muestra visitantes, páginas vistas, origen, país, navegador y dispositivo en **Analytics**. `@vercel/speed-insights/astro` añade métricas reales de rendimiento en **Speed Insights**; hay que activar esta función en el panel de Vercel para que empiece a recopilar datos. No se cargan fuentes externas ni se envían eventos personalizados. Las fuentes oficiales Manrope e Inter se sirven desde este proyecto.
 
-Para contar intentos de descarga, abre **Observability → CDN Requests** y consulta la ruta `/descargar`. Cada solicitud a esa ruta redirige al APK de Supabase. Este número puede incluir bots o repeticiones y no confirma que la descarga terminase ni que se instalase. El plan Hobby no ofrece eventos personalizados de Web Analytics ni mapas de calor; para descargas completadas harían falta datos del proveedor que sirve el APK.
+Para contar intentos de descarga, abre **Observability → CDN Requests** y consulta la ruta `/descargar`. Cada solicitud a esa ruta redirige al APK de GitHub. Este número puede incluir bots o repeticiones y no confirma que la descarga terminase ni que se instalase. El plan Hobby no ofrece eventos personalizados de Web Analytics ni mapas de calor; GitHub muestra el número de descargas del archivo en la Release, pero tampoco confirma instalaciones.
 
 El sitio se genera como tres páginas estáticas. En Vercel Firewall está publicada la regla «Limite general 300 por minuto»: 300 solicitudes por minuto por IP para todas las rutas, con bloqueo al exceder el límite.
 

@@ -3,7 +3,7 @@
   "redirects": [
     {
       "source": "/descargar",
-      "destination": "https://jwvffmfcwfdkqjemwpgu.supabase.co/storage/v1/object/public/minipos-downloads/MiniPos%200.3.12.apk",
+      "destination": "https://github.com/euriLuis/MiniPos/releases/latest/download/MiniPos.apk",
       "permanent": false
     }
   ]
