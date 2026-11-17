@@ -4,7 +4,7 @@ import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://minipos-kohl.vercel.app',
+  site: 'https://minipos.dev',
   integrations: [react()],
   adapter: vercel({ webAnalytics: { enabled: true } }),
   vite: { plugins: [tailwindcss()] },
