@@ -23,7 +23,7 @@ El botón fijo de la portada pasa por `/descargar`, que redirige al archivo `Min
 
 ## Vercel
 
-El proyecto usa el adaptador estático de Vercel y `@vercel/analytics/astro` en el layout compartido. Web Analytics muestra visitantes, páginas vistas, origen, país, navegador y dispositivo en **Analytics**. `@vercel/speed-insights/astro` añade métricas reales de rendimiento en **Speed Insights**; hay que activar esta función en el panel de Vercel para que empiece a recopilar datos. Google Analytics 4 (`G-6H8SSG0TFT`) se carga solo tras aceptar la analítica opcional y la elección se puede cambiar en el pie de página. No se envían eventos personalizados. Las fuentes oficiales Manrope e Inter se sirven desde este proyecto.
+El proyecto usa el adaptador estático de Vercel y `@vercel/analytics/astro` en el layout compartido. Web Analytics muestra visitantes, páginas vistas, origen, país, navegador y dispositivo en **Analytics**. `@vercel/speed-insights/astro` añade métricas reales de rendimiento en **Speed Insights**; hay que activar esta función en el panel de Vercel para que empiece a recopilar datos. No se envían eventos personalizados. Las fuentes oficiales Manrope e Inter se sirven desde este proyecto.
 
 Para contar intentos de descarga, abre **Observability → CDN Requests** y consulta la ruta `/descargar`. Cada solicitud a esa ruta redirige al APK de GitHub. Este número puede incluir bots o repeticiones y no confirma que la descarga terminase ni que se instalase. El plan Hobby no ofrece eventos personalizados de Web Analytics ni mapas de calor; GitHub muestra el número de descargas del archivo en la Release, pero tampoco confirma instalaciones.
 
